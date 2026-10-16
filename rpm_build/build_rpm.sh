@@ -1,6 +1,7 @@
 cp *.diff ~/rpmbuild/SOURCES
 for i in $(ls *.spec) ; do rpmbuild --undefine=_disable_source_fetch -bs $i ; done
 
+pushd ~/rpmbuild/SRPMS
 mock \
 --chain \
 --enable-network \
@@ -40,3 +41,4 @@ mock \
 ./rust-oar-ocr-0.9.2-1.fc45.src.rpm \
 ./rust-ort-2.0.0~rc.13-1.fc45.src.rpm \
 ./vshot-0.1.10-1.fc45.src.rpm
+popd
