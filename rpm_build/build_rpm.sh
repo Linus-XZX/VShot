@@ -58,6 +58,5 @@ mock --chain --enable-network \
 ./rust-avif-parse-2.1.0-1.src.rpm \
 ./rust-avif-serialize-0.8.9-1.src.rpm \
 ./rust-oar-ocr-0.9.2-1.src.rpm \
-./rust-ort-2.0.0~rc.13-1.src.rpm \
 ./vshot-0.1.10-1.src.rpm
 popd
