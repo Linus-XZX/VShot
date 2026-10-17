@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -ueo pipefail
+
 cp *.diff ~/rpmbuild/SOURCES
 for i in $(ls *.spec) ; do rpmbuild --undefine=dist --undefine=_disable_source_fetch -bs $i ; done
 
