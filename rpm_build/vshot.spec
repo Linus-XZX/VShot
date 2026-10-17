@@ -20,22 +20,12 @@ Source3:    https://github.com/GreatV/oar-ocr/releases/download/v0.7.0/ppocrv6_d
 Strict-freeze Wayland screenshot CLI with Qt interactive overlay and pin server
 
 BuildRequires:  cmake gcc cargo-rpm-macros
+# This is quite likely to be incomplete.
 Requires:   qt6-qtbase layer-shell-qt onnxruntime libwayland-client
 
-# Vendored dependencies. Fedora either does not ship them, or
-# ships them at a version that does not satisfy the constraints.
-# Provides:   (crate(avif-serialize/default) >= 0.8.9 with crate(avif-serialize/default) < 0.9.0~)
-# Provides:   (crate(oar-ocr) >= 0.9.2 with crate(oar-ocr) < 0.10.0~)
-# Provides:   crate(ort) = 2.0.0~rc.13
-# Provides:   crate(ort/ndarray) = 2.0.0~rc.13
-# Provides:   crate(ort/pkg-config) = 2.0.0~rc.13
-# Provides:   crate(ort/std) = 2.0.0~rc.13
-# Provides:   crate(ort/tracing) = 2.0.0~rc.13
-
 %prep
-%forgesetup
-# There seems to be a chicken-and-egg situation that causes this macro to fail to expand... pre-expansion?
-%{?cargo_prep}
+%forgeautosetup -p1
+%cargo_prep
 
 %generate_buildrequires
 %cargo_generate_buildrequires -t
