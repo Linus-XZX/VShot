@@ -6,9 +6,9 @@ This project falls in the [non-crate Rust project](https://docs.fedoraproject.or
 
 Dependencies are sourced from the Fedora repos to the best extent possible, and the unresolved crates are specced with `rust2rpm` and built alongside the main program.
 
-Some crates are configured differently from the default. Please refer to the `.diff` files in `rpm_build` that does not end with `-auto`.
+Some crates are configured differently from the default, signaled by the corresponding `.diff` files in `rpm_build` that does not end with `-auto`.
 
-Some crates are built with tests disabled for various reasons. Please refer to the top comments in the `.spec` files.
+Some crates are built with tests disabled for various reasons. Some of these cases might be revisited later via more fine-grained handling in the build steps.
 
 ## To use
 
