@@ -16,12 +16,13 @@ Source1:    %{modelbase}/det/PP-OCRv6_det_small.onnx
 Source2:    %{modelbase}/rec/PP-OCRv6_rec_small.onnx
 Source3:    https://github.com/GreatV/oar-ocr/releases/download/v0.7.0/ppocrv6_dict.txt
 
+BuildRequires:  cmake gcc gcc-c++
+BuildRequires:  cargo-rpm-macros >= 24
+# This is quite likely to be incomplete.
+Requires:       qt6-qtbase layer-shell-qt onnxruntime libwayland-client
+
 %description
 Strict-freeze Wayland screenshot CLI with Qt interactive overlay and pin server
-
-BuildRequires:  cmake gcc cargo-rpm-macros
-# This is quite likely to be incomplete.
-Requires:   qt6-qtbase layer-shell-qt onnxruntime libwayland-client
 
 %prep
 %forgeautosetup -p1
@@ -46,19 +47,19 @@ cmake --build build-qt --parallel
 %{__install} -Dpm755 target/rpm/vshot -t %{buildroot}%{_bindir}
 %{__install} -Dpm755 build-qt/vshot-qt-ui -t %{buildroot}%{_bindir}
 # The OCR models, under the names `src/ocr.rs` looks for.
-%{__install} -Dpm644 %{S:1} %{_datadir}/%{name}/models/det.onnx
-%{__install} -Dpm644 %{S:2} %{_datadir}/%{name}/models/rec.onnx
-%{__install} -Dpm644 %{S:3} %{_datadir}/%{name}/models/dict.txt"
+%{__install} -Dpm644 %{S:1} %{buildroot}%{_datadir}/%{name}/models/det.onnx
+%{__install} -Dpm644 %{S:2} %{buildroot}%{_datadir}/%{name}/models/rec.onnx
+%{__install} -Dpm644 %{S:3} %{buildroot}%{_datadir}/%{name}/models/dict.txt
 # Authorizes the CLI for KWin's restricted ScreenShot2 D-Bus interface.
-%{__install} -Dpm644 vshot.desktop %{_datadir}/applications/%{name}.desktop
+%{__install} -Dpm644 vshot.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
 # The launcher entry the application menu shows: it opens the settings
 # window, which is the one thing vshot can do from a menu (a capture needs
 # a destination, so there is nothing sensible to launch bare).
-%{__install} -Dpm644 vshot-settings.desktop %{_datadir}/applications/%{name}-settings.desktop
+%{__install} -Dpm644 vshot-settings.desktop %{buildroot}%{_datadir}/applications/%{name}-settings.desktop
 # One scalable icon rather than a size ladder: the shells that read it
 # (KDE, GNOME, wlroots launchers) render SVG themselves and ask for the
 # size they need, so a ladder would only add files to keep in step.
-%{__install} -Dpm644 icons/vshot.svg %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{__install} -Dpm644 icons/vshot.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 
 %files
 %{_bindir}/%{name}
