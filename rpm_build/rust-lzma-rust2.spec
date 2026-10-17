@@ -12,6 +12,8 @@ Summary:        LZMA / LZMA2 / LZIP / XZ compression ported from 'tukaani xz for
 License:        Apache-2.0
 URL:            https://crates.io/crates/lzma-rust2
 Source:         %{crates_source}
+# Manually created patch for downstream crate metadata changes
+Patch:          lzma-rust2-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 

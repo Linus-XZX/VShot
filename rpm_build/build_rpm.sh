@@ -49,6 +49,7 @@ mock --chain --enable-network \
 ./rust-darling-0.24.1-1.src.rpm \
 ./rust-oar-ocr-derive-0.9.2-1.src.rpm \
 ./rust-ort-sys-2.0.0~rc.13-1.src.rpm \
+./rust-liblzma-0.4.8-1.src.rpm \
 ./rust-lzma-rust2-0.15.8-1.src.rpm \
 ./rust-hmac-sha256-1.1.15-1.src.rpm \
 ./rust-ort-2.0.0~rc.13-1.src.rpm \
