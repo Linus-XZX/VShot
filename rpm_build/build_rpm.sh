@@ -31,6 +31,7 @@ mock --chain --enable-network \
 ./rust-vello_cpu-0.0.8-1.src.rpm \
 ./rust-hayro-0.7.1-1.src.rpm \
 ./rust-safe_arch-1.2.0-1.src.rpm \
+./rust-wide-1.7.1-1.src.rpm \
 ./rust-simba-0.10.2-1.src.rpm \
 ./rust-nalgebra-0.35.0-1.src.rpm \
 ./rust-imageproc-0.27.0-1.src.rpm \
