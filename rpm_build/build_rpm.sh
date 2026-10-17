@@ -48,8 +48,8 @@ mock --chain --enable-network \
 ./rust-monostate-0.1.18-1.src.rpm \
 ./rust-daachorse-3.0.3-1.src.rpm \
 ./rust-tokenizers-0.23.2-1.src.rpm \
-./rust-darling_macro-0.24.1-1.src.rpm \
 ./rust-darling_core-0.24.1-1.src.rpm \
+./rust-darling_macro-0.24.1-1.src.rpm \
 ./rust-darling-0.24.1-1.src.rpm \
 ./rust-oar-ocr-derive-0.9.2-1.src.rpm \
 ./rust-ort-sys-2.0.0~rc.13-1.src.rpm \
