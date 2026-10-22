@@ -2,10 +2,18 @@
 
 set -ueo pipefail
 
+# Populate the initial `~/rpmbuild` directory just in case.
+rpmdev-setuptree
+
 cp *.diff ~/rpmbuild/SOURCES
+# Removing %dist makes the SRPM path distro independent.
 for i in $(ls *.spec) ; do rpmbuild --undefine=dist --undefine=_disable_source_fetch -bs $i ; done
 
+# Not typing this path 50+ times.
 pushd ~/rpmbuild/SRPMS
+# With --chain, mock will save the previously built packages
+# in a local repo that can be queried to fulfill dependencies
+# of later packages, so the order matters here.
 mock --chain --enable-network \
 ./rust-k9-0.12.0-1.src.rpm \
 ./rust-roxmltree-0.20.0-1.src.rpm \
