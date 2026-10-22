@@ -564,7 +564,7 @@ fn not_authorized_hint() -> String {
         "KWin shows no permission prompt: it authorizes the ScreenShot2 interface \
          only for a client whose desktop file declares \
          `X-KDE-DBUS-Restricted-Interfaces=org.kde.KWin.ScreenShot2`. In some cases \
-         `X-DBUS-StartType=Unique` may also be needed. This binary is \
+         `X-DBUS-StartupType=Unique` may also be needed. This binary is \
          `{executable}`.  Installing the package provides such a desktop file for \
          `/usr/bin/vshot`; a build run straight out of `target/` needs its own \
          desktop file whose `Exec=` starts with `{executable}` plus the keys, and \
